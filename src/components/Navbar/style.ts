@@ -5,19 +5,31 @@ const flex = css`
   display: flex;
 `;
 
-// main container
-const Container = styled.div``;
+// main outer container
+const Container = styled.div`
+  ${flex}
+  flex-direction: column;
+  justify-content: center;
+`;
+
+// main wrapper
+const Main = styled.div`
+  ${flex}
+  justify-content: center;
+  background-color: var(--primaryColor);
+`;
 
 // main navbar item wrapper
 const Wrapper = styled.div`
   ${flex}
   align-items: center;
   justify-content: space-between;
-  background-color: var(--primaryColor);
   color: #fff;
   padding: var(--padding);
   height: 64px;
   font-size: 16px;
+  width: 100%;
+  max-width: 1440px;
 `;
 
 // navbar sections
@@ -86,6 +98,7 @@ const LoginButton = styled.button`
 
 export {
   Container,
+  Main,
   Wrapper,
   Section,
   Logo,

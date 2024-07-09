@@ -6,6 +6,7 @@ import {
   Logo,
   LogoImage,
   LogoTitle,
+  Main,
   Section,
   Wrapper,
 } from "./style";
@@ -16,26 +17,28 @@ const Navbar = () => {
   const navigate = useNavigate();
   return (
     <Container>
-      <Wrapper>
-        <Section>
-          <Logo onClick={() => navigate("/")}>
-            <LogoImage src={logo} />
-            <LogoTitle>Houzing</LogoTitle>
-          </Logo>
-        </Section>
-        <Section>
-          {navbar.map(({ title, path }, index) => {
-            return (
-              <Link key={index} to={path}>
-                {title}
-              </Link>
-            );
-          })}
-        </Section>
-        <Section>
-          <LoginButton>Login</LoginButton>
-        </Section>
-      </Wrapper>
+      <Main>
+        <Wrapper>
+          <Section>
+            <Logo onClick={() => navigate("/")}>
+              <LogoImage src={logo} />
+              <LogoTitle>Houzing</LogoTitle>
+            </Logo>
+          </Section>
+          <Section>
+            {navbar.map(({ title, path }, index) => {
+              return (
+                <Link key={index} to={path}>
+                  {title}
+                </Link>
+              );
+            })}
+          </Section>
+          <Section>
+            <LoginButton>Login</LoginButton>
+          </Section>
+        </Wrapper>
+      </Main>
       <Outlet />
     </Container>
   );
