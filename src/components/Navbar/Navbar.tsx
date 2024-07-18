@@ -2,7 +2,6 @@ import { Outlet, useNavigate } from "react-router-dom";
 import {
   Container,
   Link,
-  LoginButton,
   Logo,
   LogoImage,
   LogoTitle,
@@ -12,6 +11,7 @@ import {
 } from "./style";
 import logo from "../../assets/icons/logo.svg";
 import navbar from "../../utils/navbar";
+import GenericButton from "../Generic/Button/Button";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -26,16 +26,20 @@ const Navbar = () => {
             </Logo>
           </Section>
           <Section>
-            {navbar.map(({ title, path }, index) => {
+            {navbar.map(({ title, path, hidden }, index) => {
               return (
-                <Link key={index} to={path}>
-                  {title}
-                </Link>
+                !hidden && (
+                  <Link key={index} to={path}>
+                    {title}
+                  </Link>
+                )
               );
             })}
           </Section>
           <Section>
-            <LoginButton>Login</LoginButton>
+            <GenericButton type="outlined" onClick={() => navigate("/login")}>
+              Login
+            </GenericButton>
           </Section>
         </Wrapper>
       </Main>

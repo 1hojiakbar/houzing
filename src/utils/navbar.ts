@@ -8,7 +8,7 @@ interface NavbarItem {
   path: string;
   private: boolean;
   hidden: boolean;
-  element: React.FC;
+  element: React.FC | string;
 }
 
 const navbar: NavbarItem[] = [
@@ -27,6 +27,14 @@ const navbar: NavbarItem[] = [
     path: "/properties",
     private: false,
     hidden: false,
+  },
+  {
+    id: Number(useUniqeId),
+    title: "Properties",
+    element: "Generic Login",
+    path: "/login",
+    private: false,
+    hidden: true,
   },
 ];
 

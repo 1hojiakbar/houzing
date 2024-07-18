@@ -74,36 +74,4 @@ const Link = styled(NavLink)`
   text-decoration: none;
 `;
 
-// login button style
-const LoginButton = styled.button`
-  ${flex}
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 12px 40px 12px 40px;
-  width: 120px;
-  height: 44px;
-  color: var(--whiteColor);
-  font-family: var(--mont);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-  letter-spacing: 0%;
-  text-align: left;
-  border: 2px solid var(--whiteColor);
-  border-radius: 2px;
-  background: transparent;
-  cursor: pointer;
-`;
-
-export {
-  Container,
-  Main,
-  Wrapper,
-  Section,
-  Logo,
-  LogoImage,
-  LogoTitle,
-  Link,
-  LoginButton,
-};
+export { Container, Main, Wrapper, Section, Logo, LogoImage, LogoTitle, Link };
