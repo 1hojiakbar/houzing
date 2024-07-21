@@ -1,5 +1,9 @@
+import navbar from "../../utils/navbar";
+import { Button } from "../Generic/index";
+import logo from "../../assets/icons/logo.svg";
 import { Outlet, useNavigate } from "react-router-dom";
 import {
+  Body,
   Container,
   Link,
   Logo,
@@ -9,9 +13,7 @@ import {
   Section,
   Wrapper,
 } from "./style";
-import logo from "../../assets/icons/logo.svg";
-import navbar from "../../utils/navbar";
-import GenericButton from "../Generic/Button/Button";
+import Filter from "../Filter/Filter";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -37,13 +39,16 @@ const Navbar = () => {
             })}
           </Section>
           <Section>
-            <GenericButton type="outlined" onClick={() => navigate("/login")}>
+            <Button type="outlined" onClick={() => navigate("/login")} color="var(--whiteColor)">
               Login
-            </GenericButton>
+            </Button>
           </Section>
         </Wrapper>
       </Main>
-      <Outlet />
+      <Filter />
+      <Body>
+        <Outlet />
+      </Body>
     </Container>
   );
 };

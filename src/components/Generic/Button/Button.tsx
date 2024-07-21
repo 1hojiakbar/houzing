@@ -1,26 +1,18 @@
 import React from "react";
-import { StyledButton } from "./style";
-
-interface GenericButtonProps {
-  children: string;
-  brcolor?: string;
-  brwidth?: number;
-  radius?: number;
-  width?: number;
-  bg?: string;
-  onClick?: () => void;
-  height?: number;
-  type: "primary" | "outlined" | "default";
-}
+import { GenericButtonProps, Icon, StyledButton } from "./style";
 
 const GenericButton: React.FC<GenericButtonProps> = ({
   children,
   onClick,
+  iconRight,
+  iconLeft,
   ...props
 }) => {
   return (
     <StyledButton {...props} onClick={onClick}>
+      <Icon src={iconLeft && iconLeft} />
       {children || "Generic Button"}
+      <Icon src={iconRight && iconRight} />
     </StyledButton>
   );
 };

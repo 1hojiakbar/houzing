@@ -1,13 +1,16 @@
 import styled from "styled-components";
 import { Button as AntButton } from "antd";
 
-interface GenericButtonProps {
-  brcolor?: string;
-  brwidth?: number;
+export interface GenericButtonProps {
+  children: React.ReactNode;
   radius?: number;
   width?: number;
   bg?: string;
-  height?: number;
+  iconLeft?: string;
+  iconRight?: string;
+  onClick?: () => void;
+  color?: string;
+  height?: number | string;
   type: "primary" | "outlined" | "default";
 }
 
@@ -15,24 +18,29 @@ type Type = {
   type: string;
 };
 
-const getBg = ({ type }: Type) => {
+export interface InputWrapperTypes {
+  width?: number;
+}
+
+export const Icon = styled.img``;
+
+const getType = ({ type }: Type) => {
   switch (type) {
     case "primary":
       return {
-        background: "rgb(0, 97, 223)",
+        background: "var(--primary)",
         color: "var(--whiteColor)",
       };
     case "outlined":
       return {
         background: "transparent",
-        color: "var(--whiteColor)",
-        border: "1.7px solid var(--whiteColor)",
+        color: "var(--primaryColor)",
+        border: "1px solid var(--outlinedColor)",
       };
     case "default":
       return {
         background: "var(--whiteColor)",
         color: "rgb(13, 38, 59)",
-        border: "1.7px solid var(--whiteColor)",
       };
     default:
       return {
@@ -47,17 +55,16 @@ export const StyledButton = styled(AntButton)<GenericButtonProps>`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  max-width: 120px;
-  width: ${({ width }) => (width ? `${width}px` : "120px")};
-  border-width: ${({ brwidth }) => (brwidth ? `${brwidth}px` : "2px")};
-  border-radius: ${({ radius }) => (radius ? `${radius}px` : "2px")};
-  background: ${({ bg }) => (bg ? `${bg}` : "#4CAF50")};
-  ${getBg}
+  ${getType}
   cursor: pointer;
   font-family: var(--mont);
   font-size: 14px;
+  gap: 8px;
   font-weight: 400;
   line-height: 20px;
   letter-spacing: 0%;
+  width: ${({ width }) => (width ? `${width}px` : "120px")};
   height: ${({ height }) => (height ? `${height}px` : "44px")};
+  color: ${({ color }) => (color ? color : "var(--whiteColor)")};
+  border-radius: ${({ radius }) => (radius ? `${radius}px` : "2px")};
 `;

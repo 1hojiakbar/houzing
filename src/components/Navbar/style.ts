@@ -12,6 +12,9 @@ const Container = styled.div`
   justify-content: center;
 `;
 
+// Body wrapper
+const Body = styled.div``;
+
 // main wrapper
 const Main = styled.div`
   ${flex}
@@ -74,4 +77,14 @@ const Link = styled(NavLink)`
   text-decoration: none;
 `;
 
-export { Container, Main, Wrapper, Section, Logo, LogoImage, LogoTitle, Link };
+export {
+  Container,
+  Body,
+  Main,
+  Wrapper,
+  Section,
+  Logo,
+  LogoImage,
+  LogoTitle,
+  Link,
+};

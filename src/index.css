@@ -7,6 +7,8 @@
 }
 
 :root {
+  --primary: rgb(0, 97, 223);
+  --outlinedColor: #cdcccc;
   --primaryColor: rgb(13, 38, 59);
   --whiteColor: rgb(255, 255, 255);
   --mont: "Montserrat", sans-serif;
